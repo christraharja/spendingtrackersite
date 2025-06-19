@@ -630,8 +630,8 @@
             budgetInputs.forEach(input => {
                 input.addEventListener('change', function() {
                     const category = this.dataset.category;
-                    const budget = parseFloat(this.value) || 0;
-                    
+                    const amount = parseFloat(this.value) || 0;
+
                     fetch('/update_budget/', {
                         method: 'POST',
                         headers: {
@@ -640,7 +640,7 @@
                         },
                         body: JSON.stringify({
                             category: category,
-                            budget: budget
+                            amount: amount
                         })
                     })
                     .then(response => response.json())
